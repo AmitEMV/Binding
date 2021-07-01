@@ -1,0 +1,40 @@
+<Page
+    x:Class="Binding.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Binding"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactions="clr-namespace:Microsoft.Xaml.Interactions.Core;assembly=Microsoft.Xaml.Interactions"
+    mc:Ignorable="d">
+    <Interactivity:Interaction.Behaviors>
+        <Interactions:EventTriggerBehavior EventName="Loaded">
+            <Interactions:InvokeCommandAction Command="{Binding LoadInitialDataCommand}" />
+        </Interactions:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
+    <Page.DataContext>
+        <local:MainPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+    <Page.Resources>
+         <DataTemplate x:Key="Test">
+                <controls:DataGrid ItemsSource="{Binding NamesList}" AutoGenerateColumns="False"
+                               HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"
+                               GridLinesVisibility="All">
+                    <controls:DataGrid.Columns>
+                        <controls:DataGridTextColumn Header="Fund Name" Width="4*"
+                                                     Binding="{Binding Group}">
+                        </controls:DataGridTextColumn>
+                        <controls:DataGridTextColumn Header="Invested Amount" Width="2*"
+                                                         Binding="{Binding Name}">
+                        </controls:DataGridTextColumn>
+                    </controls:DataGrid.Columns>
+                </controls:DataGrid>
+
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Width="200" Height="300">
+		<ContentPresenter ContentTemplate="{StaticResource Test}" HorizontalContentAlignment="Stretch" />
+    </Grid>
+</Page>
