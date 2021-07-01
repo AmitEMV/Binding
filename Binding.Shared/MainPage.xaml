@@ -23,10 +23,10 @@
                                HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"
                                GridLinesVisibility="All">
                     <controls:DataGrid.Columns>
-                        <controls:DataGridTextColumn Header="Fund Name" Width="4*"
+                        <controls:DataGridTextColumn Header="Fund Name" Width="5*"
                                                      Binding="{Binding Group}">
                         </controls:DataGridTextColumn>
-                        <controls:DataGridTextColumn Header="Invested Amount" Width="2*"
+                        <controls:DataGridTextColumn Header="Invested Amount" Width="5*"
                                                          Binding="{Binding Name}">
                         </controls:DataGridTextColumn>
                     </controls:DataGrid.Columns>
@@ -34,7 +34,7 @@
 
         </DataTemplate>
     </Page.Resources>
-    <Grid Width="200" Height="300">
+    <Grid Width="400" Height="300">
 		<ContentPresenter ContentTemplate="{StaticResource Test}" HorizontalContentAlignment="Stretch" />
     </Grid>
 </Page>
